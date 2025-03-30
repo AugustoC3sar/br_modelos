@@ -467,18 +467,18 @@ public class AppMainWindow extends JPanel {
 	}
 
 	public void setCurrentEditor(ModelingEditor editor) {
-		ModelingEditor previousEditor = this.currentEditor;
+		ModelingEditor previousEditor = currentEditor;
 
 		if (previousEditor != editor) {
 			if (previousEditor != null) {
 				try {
-					this.currentEditor.setMaximum(false);
-					this.currentEditor.setSelected(false);
+					currentEditor.setMaximum(false);
+					currentEditor.setSelected(false);
 				} catch (PropertyVetoException e) {
 				}
 			}
 
-			this.currentEditor = editor;
+			currentEditor = editor;
 
 			updateControls();
 			updateTitle();
@@ -847,12 +847,16 @@ public class AppMainWindow extends JPanel {
 	 */
 	@SuppressWarnings("serial")
 	public Action bind(String name, final Action action, String iconUrl) {
-		return new AbstractAction(name,
+		Action newAction =  new AbstractAction(name,
 				(iconUrl != null) ? new ImageIcon(BrModelo2All.class.getResource(iconUrl)) : null) {
 			public void actionPerformed(ActionEvent e) {
 				action.actionPerformed(new ActionEvent(getDesktop(), e.getID(), e.getActionCommand()));
 			}
 		};
+		
+		newAction.putValue(Action.SHORT_DESCRIPTION, mxResources.get(name));
+		
+		return newAction;
 	}
 
 	protected void installListeners() {

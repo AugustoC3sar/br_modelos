@@ -42,22 +42,23 @@ public class ToolBar extends JToolBar {
 		setFloatable(false);
 		setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3), getBorder()));
 
-		add(editor.bind("NewConceptual", new NewConceptualModelingAction(),
+		add(editor.bind("newConceptual", new NewConceptualModelingAction(),
 				"/ufsc/sisinf/brmodelo2all/ui/images/menu/new_conceitual.png"));
-		add(editor.bind("NewRelational", new NewRelationalModelingAction(),
+		add(editor.bind("newRelational", new NewRelationalModelingAction(),
 				"/ufsc/sisinf/brmodelo2all/ui/images/menu/new_logico.png"));
-		add(editor.bind("NewNoSQL", new NewNoSQLModelingAction(), null));
-		add(editor.bind("Open", new OpenAction(), "/ufsc/sisinf/brmodelo2all/ui/images/menu/open.png"));
-		add(editor.bind("Save", new SaveAction(false), "/ufsc/sisinf/brmodelo2all/ui/images/menu/save.png"));
+		add(editor.bind("newNoSQL", new NewNoSQLModelingAction(), 
+				"/ufsc/sisinf/brmodelo2all/ui/images/menu/new_nosql.png"));
+		add(editor.bind("open", new OpenAction(), "/ufsc/sisinf/brmodelo2all/ui/images/menu/open.png"));
+		add(editor.bind("save", new SaveAction(false), "/ufsc/sisinf/brmodelo2all/ui/images/menu/save.png"));
 
 		addSeparator();
 
-		add(editor.bind("Undo", new HistoryAction(true), "/ufsc/sisinf/brmodelo2all/ui/images/menu/undo.png"));
-		add(editor.bind("Redo", new HistoryAction(false), "/ufsc/sisinf/brmodelo2all/ui/images/menu/redo.png"));
+		add(editor.bind("undo", new HistoryAction(true), "/ufsc/sisinf/brmodelo2all/ui/images/menu/undo.png"));
+		add(editor.bind("redo", new HistoryAction(false), "/ufsc/sisinf/brmodelo2all/ui/images/menu/redo.png"));
 
 		addSeparator();
 
-		add(editor.bind("Print", new PrintAction(), "/ufsc/sisinf/brmodelo2all/ui/images/menu/print.png"));
+		add(editor.bind("print", new PrintAction(), "/ufsc/sisinf/brmodelo2all/ui/images/menu/print.png"));
 
 	}
 }
